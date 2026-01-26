@@ -1,24 +1,17 @@
-CARLA Simulator
+UB-CARLA
 ===============
 
-[![Documentation](https://readthedocs.org/projects/carla/badge/?version=latest)](http://carla.readthedocs.io) 
+This is University at Buffalo's fork of CARLA. It includes custom maps, scripts and vehicles related to our research in the CAVAS Lab.
 
-[![carla.org](Docs/img/btn/web.png)](http://carla.org)
-[![download](Docs/img/btn/download.png)](https://carla.readthedocs.io/en/latest/download/)
-[![documentation](Docs/img/btn/docs.png)](http://carla.readthedocs.io)
-[![forum](Docs/img/btn/forum.png)](https://github.com/carla-simulator/carla/discussions)
-[![discord](Docs/img/btn/chat.png)](https://discord.gg/8kqACuC)
+[![Documentation](https://readthedocs.org/projects/carla/badge/?version=latest)](http://carla.readthedocs.io) 
 [![Gurubase](https://img.shields.io/badge/Gurubase-Ask%20CARLA%20Simulator%20Guru-006BFF)](https://gurubase.io/g/carla-simulator)
 
-CARLA is an open-source simulator for autonomous driving research. CARLA has been developed from the ground up to support development, training, and
-validation of autonomous driving systems. In addition to open-source code and protocols, CARLA provides open digital assets (urban layouts, buildings,
-vehicles) that were created for this purpose and can be used freely. The simulation platform supports flexible specification of sensor suites and
-environmental conditions.
+### Recommended system
 
-[![CARLA Video](Docs/img/0_9_15_thumbnail.webp)](https://www.youtube.com/watch?v=q4V9GYjA1pE )
-
->[!NOTE]
->This is the development branch `ue4-dev` for the **Unreal Engine 4.26 version of CARLA**. This branch exists in parallel with the Unreal Engine 5.3 version of CARLA, in the `ue5-dev` branch. Please be sure that this version of CARLA is suitable for your needs as there are significant differences between the UE 4.26 and UE 5.3 versions of CARLA. 
+* Intel i7 gen 9th - 11th / Intel i9 gen 9th - 11th / AMD ryzen 7 / AMD ryzen 9
+* +32 GB RAM memory
+* NVIDIA RTX 4070/4080/4090 5070/5080/5090
+* Ubuntu 22.04
 
 ### Download CARLA
 
@@ -30,15 +23,38 @@ Windows:
 * [**Get CARLA overnight build**](https://tiny.carla.org/carla-latest-windows)
 * [**Get AdditionalMaps overnight build**](https://tiny.carla.org/additional-maps-latest-windows)
 
->[!WARNING]
->The CARLA package downloads are now provided using the BackBlaze CDN. The Amazon Web Service download links have been discontinued. Please ensure you update any relevant information in repositories using the CARLA simulator package versions. 
-
-### Recommended system
-
-* Intel i7 gen 9th - 11th / Intel i9 gen 9th - 11th / AMD ryzen 7 / AMD ryzen 9
-* +32 GB RAM memory
-* NVIDIA RTX 3070 / NVIDIA RTX 3080 / NVIDIA RTX 4090
-* Ubuntu 20.04
+### Build CARLA + Unreal Engine 4.26
+1. Clone the content for CARLA's fork of Unreal Engine 4.26 to your local computer:
+```
+git clone --depth 1 -b carla https://oauth2:TOKEN@github.com/CarlaUnreal/UnrealEngine.git ~/UnrealEngine_4.26
+```
+2. Build the Unreal Editor:
+```
+cd ~/UnrealEngine_4.26
+./Setup.sh && ./GenerateProjectFiles.sh && make
+```
+3. Verify the installation succeeded:
+```
+cd ~/UnrealEngine_4.26/Engine/Binaries/Linux && ./UE4Editor
+```
+4. Set the UE4_ROOT environment variable
+```
+cd ~
+echo "export UE4_ROOT=~/UnrealEngine_4.26" >> ~/.bashrc
+```
+5. Clone this repo (if not already cloned)
+```
+git clone git@github.com:ub-cavas/UB-CARLA.git
+```
+6. Set the CARLA_UE4_ROOT environment variable
+```
+echo "export CARLA_UE4_ROOT=/path/to/carla/folder" >> ~/.bashrc
+```
+7. Download the CARLA content (3D assets, maps, etc.)
+```
+cd /path/to/carla/folder
+./Update.sh
+```
 
 ## Documentation
 

@@ -9,7 +9,7 @@
 
 set -e  # Exit on any error
 
-ROOT_DIR=$(realpath "$(dirname "$1")")
+ROOT_DIR=$(realpath "$(dirname "$0")")
 
 # Parse command line arguments
 DOWNLOAD_CHECKPOINTS=false

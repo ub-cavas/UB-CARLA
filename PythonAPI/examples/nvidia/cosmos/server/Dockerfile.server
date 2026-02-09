@@ -35,7 +35,7 @@ RUN apt-get --no-install-recommends install -y libmagic-dev
 COPY . .
 
 # Install Python dependencies from both requirements files
-RUN pip install --no-cache-dir -r requirements_docker.txt && \
+RUN pip install --no-cache-dir -r requirements_server.txt && \
     pip install --no-cache-dir -r requirements.txt
 
 # Link python explicitly if not already done

@@ -36,7 +36,7 @@ COPY . .
 
 # Install Python dependencies from both requirements files
 RUN pip install --no-cache-dir -r requirements_docker.txt && \
-    pip install --no-cache-dir -r requirements_server.txt
+    pip install --no-cache-dir -r requirements.txt
 
 # Link python explicitly if not already done
 RUN ln -sf /usr/bin/python3.12 /usr/bin/python

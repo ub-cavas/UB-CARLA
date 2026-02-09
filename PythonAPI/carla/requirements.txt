@@ -3,5 +3,5 @@ build
 distro==1.9.0
 packaging
 pyelftools
-setuptools
+setuptools==79.0.1
 wheel

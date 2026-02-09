@@ -55,6 +55,8 @@ echo "export CARLA_UE4_ROOT=/path/to/carla/folder" >> ~/.bashrc
 cd /path/to/carla/folder
 ./Update.sh
 ```
+8. Using Conda create a virtual environment
+9. 
 
 ## Documentation
 
